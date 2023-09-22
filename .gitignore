@@ -1,0 +1,11 @@
+/target/
+.project
+.classpath
+**/target/
+**/.settings/
+/tomcatembed/
+nb-configuration.xml
+nbactions.xml
+.idea/
+.vscode/
+.settings/
