@@ -17,7 +17,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           cache: 'maven'
-          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+          # server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
       - name: Check
         run: java -version && mvn -version && cat /home/runner/.m2/settings.xml
 #      - name: Create settings
