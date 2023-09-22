@@ -4,7 +4,7 @@ on:
     inputs:
       version:
         description: "Version number"
-permissions: read-all|write-all        
+permissions: read-all 
 jobs:
   maven-release:
     runs-on: ubuntu-latest
