@@ -19,7 +19,7 @@ jobs:
           server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }} # location for the settings.xml file
       - name: Check
-        run: java -version && mvn -version
+        run: java -version && mvn -version && cat $GITHUB_WORKSPACE/settings.xml
 #      - name: Create settings
 #        run: echo "<settings><interactiveMode>false</interactiveMode><profiles/><servers><server><id>github</id><configuration><httpHeaders><property><name>Authorization</name><value>Bearer ${{ secrets.GITHUB_TOKEN }}</value></property></httpHeaders></configuration></server></servers><mirrors /></settings>" > ~/.m2/settings.xml
       - name: Release with maven
