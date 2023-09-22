@@ -28,8 +28,8 @@ jobs:
           git config user.name "GitHub Actions"
       - name: Build with maven
         run: mvn clean install -DskipTests=true
-        #env:
-          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}          
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}          
       - name: Release with maven
         run: mvn -DskipTests -Dmaven.test.skip=true -B -Dresume=false release:prepare release:perform -Darguments=-DskipTests -Dmaven.test.skip=true -Dmaven.site.skip=true -Dmaven.site.deploy.skip=true  -DreleaseVersion=${{ inputs.version }}
         env:
