@@ -23,6 +23,6 @@ jobs:
 #      - name: Create settings
 #        run: echo "<settings><interactiveMode>false</interactiveMode><profiles/><servers><server><id>github</id><configuration><httpHeaders><property><name>Authorization</name><value>Bearer ${{ secrets.GITHUB_TOKEN }}</value></property></httpHeaders></configuration></server></servers><mirrors /></settings>" > ~/.m2/settings.xml
       - name: Release with maven
-        run: mvn  -s $GITHUB_WORKSPACE/settings.xml -DskipTests -Dmaven.test.skip=true -B -Dresume=false release:prepare release:perform -Darguments=-DskipTests -Dmaven.test.skip=true -Dmaven.site.skip=true -Dmaven.site.deploy.skip=true  -DreleaseVersion=${{ inputs.version }}
+        run: mvn -X -s $GITHUB_WORKSPACE/settings.xml -DskipTests -Dmaven.test.skip=true -B -Dresume=false release:prepare release:perform -Darguments=-DskipTests -Dmaven.test.skip=true -Dmaven.site.skip=true -Dmaven.site.deploy.skip=true  -DreleaseVersion=${{ inputs.version }}
         env:
           GITHUB_TOKEN: ${{ github.token }} 
