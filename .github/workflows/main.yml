@@ -1,0 +1,22 @@
+name: Create Maven Release
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version number"      
+jobs:
+  maven-release:
+    runs-on: ubuntu-latest 
+    permissions: 
+      contents: read
+      packages: write 
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+      - name: Create settings
+        run: echo "<settings><interactiveMode>false</interactiveMode><profiles/><servers><server><id>github</id><configuration><httpHeaders><property><name>Authorization</name><value>Bearer ${{ secrets.GITHUB_TOKEN }}</value></property></httpHeaders></configuration></server></servers><mirrors /></settings>" > ~/.m2/settings.xml
+      - name: Release with maven
+        run: mvn -DskipTests -Dmaven.test.skip=true -B -Dresume=false release:prepare release:perform -Darguments=-DskipTests -Dmaven.test.skip=true -Dmaven.site.skip=true -Dmaven.site.deploy.skip=true  -DreleaseVersion=${{ inputs.version }}
