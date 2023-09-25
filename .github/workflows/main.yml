@@ -15,8 +15,6 @@ jobs:
           java-version: '17'
           cache: 'maven'
           server-id: 'github' # Value of the distributionManagement/repository/id field of the pom.xml
-#      - name: Create settings
-#        run: echo "<settings><interactiveMode>false</interactiveMode><profiles/><servers><server><id>github</id><configuration><httpHeaders><property><name>Authorization</name><value>Bearer ${{ secrets.GITHUB_TOKEN }}</value></property></httpHeaders></configuration></server></servers><mirrors /></settings>" > /home/runner/.m2/settings.xml
       - name: Check maven 
         run: java -version && mvn -version && cat /home/runner/.m2/settings.xml
       - name: Check inputs
@@ -28,6 +26,7 @@ jobs:
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
       - name: Release with maven
+        if: github.ref != env.default_branch_ref # Not on default branch
         run: mvn -q -DskipTests -Dmaven.test.skip=true -B -Dresume=false release:prepare release:perform -Darguments=-DskipTests -Dmaven.test.skip=true -Dmaven.site.skip=true -Dmaven.site.deploy.skip=true  -DreleaseVersion=${{ inputs.version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
