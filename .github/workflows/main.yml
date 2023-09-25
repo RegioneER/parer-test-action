@@ -1,3 +1,9 @@
+name: Create Maven Release
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version number"
 jobs:
-  release:
-    uses: RegioneER/parer-github-template/.github/workflows/release.yml@v1
+  maven-release:
+    uses: RegioneER/parer-github-template/.github/workflows/release.yml
