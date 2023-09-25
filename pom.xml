@@ -43,14 +43,14 @@
 	</properties>
 
     <scm>
-	<developerConnection>scm:git:https://github.com/RegioneER/parer-parer-test-action.git</developerConnection>
+	<developerConnection>scm:git:https://github.com/RegioneER/parer-test-action.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
         <repository>
 	   <id>github</id>
-	   <url>https://maven.pkg.github.com/RegioneER/parer-parer-test-action</url>
+	   <url>https://maven.pkg.github.com/RegioneER/parer-test-action</url>
 	 </repository>      
     </distributionManagement>
 
