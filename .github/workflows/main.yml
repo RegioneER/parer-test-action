@@ -1,3 +1,4 @@
+name: Create Maven Release
 on:
   workflow_dispatch:
     inputs:
