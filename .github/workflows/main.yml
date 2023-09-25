@@ -4,7 +4,7 @@ on:
     inputs:
       version:
         description: "Version number"
-permissions: read-all 
+permissions: write-all 
 jobs:
   maven-release:
     runs-on: ubuntu-latest
@@ -16,8 +16,8 @@ jobs:
           java-version: '17'
           cache: 'maven'
           server-id: 'github' # Value of the distributionManagement/repository/id field of the pom.xml
-      - name: Create settings
-        run: echo "<settings><interactiveMode>false</interactiveMode><profiles/><servers><server><id>github</id><configuration><httpHeaders><property><name>Authorization</name><value>Bearer ${{ secrets.GITHUB_TOKEN }}</value></property></httpHeaders></configuration></server></servers><mirrors /></settings>" > /home/runner/.m2/settings.xml
+#      - name: Create settings
+#        run: echo "<settings><interactiveMode>false</interactiveMode><profiles/><servers><server><id>github</id><configuration><httpHeaders><property><name>Authorization</name><value>Bearer ${{ secrets.GITHUB_TOKEN }}</value></property></httpHeaders></configuration></server></servers><mirrors /></settings>" > /home/runner/.m2/settings.xml
       - name: Check
         run: java -version && mvn -version && cat /home/runner/.m2/settings.xml
       - name: Configure Git user
