@@ -1,7 +1,9 @@
 name: Maven compile
+env:
+  JAVA_VERSION: '17'
 on: push
 jobs:
   maven-compile:
     uses: RegioneER/parer-github-template/.github/workflows/compile.yml@main
     with:
-     JAVA_VERSION: '17'
+     java_version: $JAVA_VERSION
