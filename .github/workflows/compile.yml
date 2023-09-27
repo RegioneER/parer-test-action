@@ -1,6 +1,6 @@
 name: Maven compile
 env:
-  JAVA_VERSION: 17
+  JAVA_VERSION: '17'
 on: push
 jobs:
   maven-compile:
