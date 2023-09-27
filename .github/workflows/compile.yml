@@ -4,6 +4,5 @@ jobs:
   maven-compile:
     uses: RegioneER/parer-github-template/.github/workflows/compile.yml@main
     with:
-     java_version: ${{ inputs.java_version }}
      env_vars: |
         JAVA_VERSION='17'
