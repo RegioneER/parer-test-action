@@ -7,15 +7,10 @@ on:
       version:
         description: "Version number"
         required: true
-        type: string
-      java_version:
-        description: "Java version"
-        required: false
-        type: string
-        default: '17'        
+        type: string       
 jobs:
   maven-release:
     uses: RegioneER/parer-github-template/.github/workflows/release.yml@v1
     with:
       version: ${{ inputs.version }}
-      java_version: ${{ inputs.java_version }}
+      java: '${JAVA_VERSION}'
