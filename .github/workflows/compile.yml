@@ -3,6 +3,6 @@ on: push
 jobs:
   maven-compile:
     uses: RegioneER/parer-github-template/.github/workflows/compile.yml@main
-    with:
+    secrets:
      env_vars: |
         JAVA_VERSION='17'
