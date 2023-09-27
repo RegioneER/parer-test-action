@@ -13,5 +13,3 @@ jobs:
     uses: RegioneER/parer-github-template/.github/workflows/release.yml@v1
     with:
       version: ${{ inputs.version }}
-  maven-compile:
-    uses: RegioneER/parer-github-template/.github/workflows/compile.yml@v1
