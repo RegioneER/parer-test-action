@@ -6,4 +6,4 @@ jobs:
   maven-compile:
     uses: RegioneER/parer-github-template/.github/workflows/compile.yml@main
     with:
-      java: '${{ env.JAVA_VERSION }}'
+      java: ${{env.JAVA_VERSION}}
