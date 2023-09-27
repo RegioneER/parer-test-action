@@ -4,4 +4,4 @@ env:
 on: push
 jobs:
   maven-compile:
-    uses: RegioneER/parer-github-template/.github/workflows/compile.yml@v1
+    uses: RegioneER/parer-github-template/.github/workflows/compile.yml@main
