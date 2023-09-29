@@ -1,11 +1,8 @@
-/target/
-.project
+target
 .classpath
-**/target/
-**/.settings/
-/tomcatembed/
-nb-configuration.xml
-nbactions.xml
+.factorypath
+.project
+.settings
+.vscode
 .idea/
-.vscode/
-.settings/
+**/*.iml
