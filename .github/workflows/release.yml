@@ -1,16 +1,14 @@
-name: Create Maven Release
-env:
-  JAVA_VERSION: '17'
+name: Maven Release
 on:
   workflow_dispatch:
     inputs:
       version:
         description: "Version number"
         required: true
-        type: string       
+        type: string      
 jobs:
-  maven-release:
+  release:
     uses: RegioneER/parer-github-template/.github/workflows/release.yml@v1
     with:
       version: ${{ inputs.version }}
-      java: '${JAVA_VERSION}'
+      java: '8'
